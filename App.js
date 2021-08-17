@@ -1,21 +1,29 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  StatusBar,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Platform,
+} from "react-native";
+
+const IS_ANDROID = Platform.OS === "android";
+
+const ANDRIOD_STATUSBAR = StatusBar.currentHeight;
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={{ backgroundColor: "red" }}>
-        Open up App.js to start working on your app!
-      </Text>
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
+      <SafeAreaView style={{ flex: 1, marginTop: ANDRIOD_STATUSBAR }}>
+        <View style={{ flex: 1, backgroundColor: "green" }} />
+        <View style={{ flex: 1, backgroundColor: "blue" }} />
+      </SafeAreaView>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});
